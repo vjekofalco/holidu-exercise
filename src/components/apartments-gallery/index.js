@@ -7,6 +7,7 @@ import { getApartments } from '../../store/apartments-reducer'
 
 const ApartmentsGalleryWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `
 
 export const ApartmentsGallery = () => {

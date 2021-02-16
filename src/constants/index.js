@@ -6,3 +6,12 @@ export const THUMBNAIL_LABEL = 't'
 
 // APIs
 export const APARTMENTS_GALLERY_API = 'https://api.holidu.com/old/rest/v6/search/offers?searchId=46fdd790-e0a7-4b96-98b5-6be594a8e8b1&searchTerm=Mallorca%2C+Spanien&adults=2&domainId=2&locale=de-DE&currency=EUR'
+
+//
+export const MAX_PAGE_WIDTH = 1200
+
+// Currencies
+export const EUR_CURRENCY = 'EUR'
+export const USD_CURRENCY = 'USD'
+export const USD_CURRENCY_SYMBOL = '$'
+export const EUR_CURRENCY_SYMBOL = '€'

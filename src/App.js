@@ -1,12 +1,11 @@
 import { Provider } from 'react-redux'
-import './App.css'
 
 import store from './store'
-import { ApartmentsGallery } from './components/apartments-gallery'
+import { ApartmentsListPage } from './pages/apartments-list-page'
 
 function App() {
   return (<Provider store={store}>
-    <ApartmentsGallery/>
+    <ApartmentsListPage/>
   </Provider>)
 }
 

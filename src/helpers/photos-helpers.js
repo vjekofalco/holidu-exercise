@@ -1,5 +1,5 @@
 export const getPhotosPerSize = (size, images) => {
-    if(!size || !images?.length > 0) {
+    if(!size || images?.length <= 0) {
         return []
     }
 
