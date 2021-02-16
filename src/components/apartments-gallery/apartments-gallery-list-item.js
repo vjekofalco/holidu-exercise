@@ -19,11 +19,24 @@ const ApartmentsGalleryListItemWrapper = styled.div`
   position: relative;
   padding-bottom: 4rem;
   background-color: ${white};
+  width: 100%;
   box-shadow: ${({ hovered }) => hovered ? `0px 6px 18px 0px ${grayScale1}` : `0px 3px 18px 0px ${grayScale2}`};
+
+  @media ${mediaBreakpointUp.m} {
+    width: calc((100% - 1rem) / 2);
+
+    &:not(:nth-child(2n)) {
+      margin-right: 1rem;
+    }
+  }
   
   @media ${mediaBreakpointUp.l} {
     width: calc((100% - 2rem) / 3);
-      
+    
+    &:not(:nth-child(2n)) {
+      margin-right: 0;
+    }
+
     &:not(:nth-child(3n)) {
       margin-right: 1rem;
     }
