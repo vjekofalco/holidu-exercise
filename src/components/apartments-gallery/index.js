@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
+import { testItemAttr } from '../../helpers/test-helpers'
 import { ApartmentsGalleryList } from './apartments-galery-list'
 import { getApartments } from '../../store/apartments-reducer'
 
@@ -24,7 +25,7 @@ export const ApartmentsGallery = () => {
         dispatch(getApartments())
     }, [])
 
-    return (<ApartmentsGalleryWrapper data-test-attribute="gallery-wrapper">
+    return (<ApartmentsGalleryWrapper {...testItemAttr('gallery-wrapper')}>
         {loading
          ? <h3>Loading...</h3>
          : <ApartmentsGalleryList apartments={apartments}/>}

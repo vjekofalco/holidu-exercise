@@ -10,7 +10,7 @@ import { formatPrice } from '../../helpers/price-helpers'
 import { getFirstPhotoPerSize } from '../../helpers/photos-helpers'
 import { mediaBreakpointUp } from '../../helpers/breakpoint-helpers'
 import { ReactComponent as LocationIcon } from '../../icons/pin.svg'
-import {grayScale1, grayScale2, support, white} from '../../constants/colors'
+import { grayScale1, grayScale2, support, white } from '../../constants/colors'
 
 const ApartmentsGalleryListItemWrapper = styled.div`
   margin-top: 1.5rem;
