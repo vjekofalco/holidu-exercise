@@ -1,3 +1,3 @@
 export const testItemAttr = (v) => {
-    return !process.env.PRODUCTION ? { 'data-test-attribute': v } : ''
+    return !process.env.REACT_APP_ENVIRONMENT ? { 'data-test-attribute': v } : ''
 }
