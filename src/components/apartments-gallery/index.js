@@ -18,14 +18,13 @@ export const ApartmentsGallery = () => {
 
     useEffect(() => {
         setApartments(offers)
-        console.log(offers)
     }, [ offers ])
 
     useEffect(() => {
         dispatch(getApartments())
     }, [])
 
-    return (<ApartmentsGalleryWrapper>
+    return (<ApartmentsGalleryWrapper data-test-attribute="gallery-wrapper">
         {loading
          ? <h3>Loading...</h3>
          : <ApartmentsGalleryList apartments={apartments}/>}
