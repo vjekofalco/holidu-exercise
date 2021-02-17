@@ -1,0 +1,32 @@
+language: node_js
+
+node_js:
+  - "12.18.3"
+
+services:
+  - docker
+
+before_install:
+  - docker build -t vjekobabic/holidu .
+
+#script:
+
+after_success:
+  - docker build -t vjekobabic/holidu .
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push vjekobabic/holidu
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "Holidu"
+  env: "Holidu-env"
+  bucket_name: $AWS_S3_BUCKET
+  bucket_path: "holidu"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+
+after_deploy:
+  - echo "Application Deployed!"
