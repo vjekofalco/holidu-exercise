@@ -36,7 +36,7 @@ export const RatingStars = ({ votesCount, averageCount }) => {
     const averagePerStar = averageCount / 20 // Dividing average count with one fifth of 100.
     const fullStarsCount = Math.floor(averagePerStar)
     const averageDifference = averagePerStar - fullStarsCount
-    const shouldDisplayHalfStar = averageDifference.toFixed(2) > 0.50
+    const shouldDisplayHalfStar = averageDifference.toFixed(2) >= 0.50
     const emptyStarsCount = shouldDisplayHalfStar ? 5 - fullStarsCount - 1 : 5 - fullStarsCount
 
     return (<RatingStarsMainWrapper>
