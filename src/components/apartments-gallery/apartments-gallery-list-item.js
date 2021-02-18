@@ -111,7 +111,7 @@ export const ApartmentsGalleryListItem = ({ apartment }) => {
                     { rating?.value > 0 && <RatingStars votesCount={rating.count} averageCount={rating.value}/> }
                 </ApartmentsGalleryInfoDetailsWrapper>
                 <ApartmentsGalleryInfoPriceWrapper>
-                    { price?.daily && price?.currency && <Text textAlign={'right'}>from <Span size={1.25} bold { ...testItemAttr('gallery-price')}>{formatPrice(price.currency, price.daily)}</Span> per night</Text> }
+                    { price?.daily && price?.currency && <Text textAlign={'right'}>from <Span block size={1.25} bold { ...testItemAttr('gallery-price')}>{formatPrice(price.currency, price.daily)}</Span> per night</Text> }
                 </ApartmentsGalleryInfoPriceWrapper>
             </ApartmentsGalleryInfoWrapper>
             <ApartmentGalleryCtaWrapper>

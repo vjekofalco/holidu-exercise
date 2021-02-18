@@ -12,6 +12,7 @@ export const Text = styled.p`
 
 export const Span = styled.span`
   ${({ bold }) => bold && 'font-weight: 600;'}
+  ${({ block }) => block && 'display: block;'}
   ${({ color }) => color && `color: ${color};`}
   ${({ size }) => `font-size : ${size || 1}rem;`}
 `
