@@ -17,7 +17,6 @@ export default (state = initialState, action) => {
             return { ...state, loading: true }
         }
         case GET_APARTMENTS_SUCCESS: {
-            console.log(payload)
             return { ...state, ...payload, loading: false }
         }
     default:

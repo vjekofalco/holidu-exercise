@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# Holidu exercise
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link to deployment environment
+http://holidu-env.eba-gpsgwypx.eu-central-1.elasticbeanstalk.com/
+
+## Deployment
+App artifact is containerized with multi step docket file and deployed with Travis.ci to AWS EBS (Amazon Linux 1) environment.
+Check: Dockerfile, Dockerrun.aws.json and .travis.yml files in projects.
+
+## Libraries of the choice
+Besides common create-react-app libraries (React, Jest, React testing library) I am using: 
+### `redux` as state management
+### `redux-saga` as async middleware
+### `styled-components` for css in js and development of presentation components
 
 ## Available Scripts
 
@@ -19,10 +30,16 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `npm run build-test`
+
+Builds the app for testing step of the deployment process.
+Keeps data testing attributes.
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+It will build production ready files without data testing attributes. 
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
@@ -39,32 +56,4 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

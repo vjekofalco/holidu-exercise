@@ -1,26 +1,31 @@
+import React from 'react'
 import styled from 'styled-components'
-import React, { useState } from 'react'
 
-import { Text } from '../common/text'
+import { Text, Span } from '../common/text'
 import { MEDIUM_LABEL} from '../../constants'
 import { RatingStars } from '../rating-stars.js'
 import { ButtonPrimary } from '../common/button'
 import { elipsisText } from '../../helpers/text-helpers'
 import { formatPrice } from '../../helpers/price-helpers'
+import { testItemAttr } from '../../helpers/test-helpers'
 import { getFirstPhotoPerSize } from '../../helpers/photos-helpers'
 import { mediaBreakpointUp } from '../../helpers/breakpoint-helpers'
 import { ReactComponent as LocationIcon } from '../../icons/pin.svg'
 import { grayScale1, grayScale2, support, white } from '../../constants/colors'
 
 const ApartmentsGalleryListItemWrapper = styled.div`
-  margin-top: 1.5rem;
+  width: 100%;
   overflow: hidden;
   border-radius: 4px;
   position: relative;
+  margin-top: 1.5rem;
   padding-bottom: 4rem;
   background-color: ${white};
-  width: 100%;
-  box-shadow: ${({ hovered }) => hovered ? `0px 6px 18px 0px ${grayScale1}` : `0px 3px 18px 0px ${grayScale2}`};
+  box-shadow: 0px 3px 18px 0px ${grayScale2};
+  
+  &:hover {
+    box-shadow: 0px 6px 18px 0px ${grayScale1};
+  }
 
   @media ${mediaBreakpointUp.m} {
     width: calc((100% - 1rem) / 2);
@@ -79,17 +84,15 @@ const ApartmentGalleryLocationIcon = styled(LocationIcon)`
 `
 
 const ApartmentGalleryCtaWrapper = styled.div`
-  text-align: right;
-  position: absolute;
-  padding: 1rem;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 0;
+  padding: 1rem;
+  text-align: right;
+  position: absolute;
 `
 
 export const ApartmentsGalleryListItem = ({ apartment }) => {
-    const [ hovered, setHovered ] = useState(false)
-
     if (!apartment) {
         return null
     }
@@ -97,20 +100,18 @@ export const ApartmentsGalleryListItem = ({ apartment }) => {
     const { photos, details, price, location, rating } = apartment
 
     return (
-        <ApartmentsGalleryListItemWrapper hovered={hovered}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}>
+        <ApartmentsGalleryListItemWrapper { ...testItemAttr('gallery-item-wrapper')}>
             <ApartmentsGalleryImageWrapper>
-                <img src={getFirstPhotoPerSize(MEDIUM_LABEL, photos)}/>
+                <img src={getFirstPhotoPerSize(MEDIUM_LABEL, photos)} { ...testItemAttr('gallery-image')}/>
             </ApartmentsGalleryImageWrapper>
             <ApartmentsGalleryInfoWrapper>
                 <ApartmentsGalleryInfoDetailsWrapper>
-                    { details?.name && <Text size={1.25}>{elipsisText(45, details.name)}</Text> }
-                    { location?.name && <ApartmentGalleryLocationText bold size={0.75} color={support}><ApartmentGalleryLocationIcon />{location.name}</ApartmentGalleryLocationText> }
+                    { details?.name && <Text size={1.25} { ...testItemAttr('gallery-name') }>{elipsisText(45, details.name)}</Text> }
+                    { location?.name && <ApartmentGalleryLocationText bold size={0.75} color={support} { ...testItemAttr('gallery-location')}><ApartmentGalleryLocationIcon />{location.name}</ApartmentGalleryLocationText> }
                     { rating?.value > 0 && <RatingStars votesCount={rating.count} averageCount={rating.value}/> }
                 </ApartmentsGalleryInfoDetailsWrapper>
                 <ApartmentsGalleryInfoPriceWrapper>
-                    { price?.daily && price?.currency && <Text textAlign={'right'}>from <Text size={1.25} bold>{formatPrice(price.currency, price.daily)}</Text> per night</Text> }
+                    { price?.daily && price?.currency && <Text textAlign={'right'}>from <Span size={1.25} bold { ...testItemAttr('gallery-price')}>{formatPrice(price.currency, price.daily)}</Span> per night</Text> }
                 </ApartmentsGalleryInfoPriceWrapper>
             </ApartmentsGalleryInfoWrapper>
             <ApartmentGalleryCtaWrapper>
